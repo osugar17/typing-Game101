@@ -8,6 +8,12 @@ db stands for database and it represents the database connection. We use db when
 
 `const colRef = collection(db,books)`
 The first argument is the database so it know what database it's going to look in for the collection and the second is the collection that I want to grab
+  
+  <img width="314" alt="firebase" src="https://user-images.githubusercontent.com/91745147/219267775-490d1b08-d2ae-4405-a43b-8b84a3cb700c.png">
+  
+  This is the code I wrote and this is supposed to show an array of all of the data of my collection of book inside the console however it didn't work. I noticed that nothing was being logged inside the console so I thought I connected my `bundle.js` file to the bundle the wrong way. I recreated the bundle based on the tutorial from NetNinja and it finally connected my bundle.js to my index.html. Even though it's now connected, the console showed a bunch of errors. For now, I have no clue on how to solve it. 
+  
+  I will try to learn more about fireStore database in the future so by the next blog I would be able to solve this problem. For skills, I've learned to have a growth mindset and embracing failure. When I was tinkering with firebase I was really confused and so I ask many questions and attended tutoring. I also made many errors when I was coding and most of the time I had to start again but I wasn't upset about it. I try to make my code better every time I redo it. 
 
 [Previous](entry02.md) | [Next](entry04.md)
 
