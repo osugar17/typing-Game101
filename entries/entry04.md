@@ -13,7 +13,7 @@ For deleting the data, I bascially have the same code except I used the `doc()` 
 
 <img width="371" alt="image" src="https://user-images.githubusercontent.com/91745147/226208080-a24481f3-ff26-448c-836b-1ab26d0273a4.png">
 
-After learning about how to add and delete data, I've developed many skills. The first skill is `embracing failure` because during the process of coding I've encountered many errors but I didn't give up and tried to fix it even if it means to redo everything. Another skill I've developed is `debugging` because I figured out the error by reading it carefully and think about what is causing the problem.
+After learning about how to add and delete data, I've developed many skills. The first skill is **embracing failure** because during the process of coding I've encountered many errors but I didn't give up and tried to fix it even if it means to redo everything. Another skill I've developed is **debugging** because I figured out the error by reading it carefully and think about what is causing the problem.
 
 
 
