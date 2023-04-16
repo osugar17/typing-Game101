@@ -30,7 +30,7 @@ const colRef = collection(db, 'player')
 
 document.querySelector('#enter').addEventListener("click", (e)=>{
     var playerName = document.querySelector('#user').value;
-    var x = Math.floor(Math.random() * 10);
+    var x = Math.floor(Math.random() * 10) ;
     console.log(x)
     console.log(playerName);
 
@@ -63,3 +63,8 @@ function searchDocument() {
 }
 
 document.getElementById('search').addEventListener('click', searchDocument);
+
+// realtime data collection
+// OnSnapshot(colRef, (snapshot) => {
+
+// })
