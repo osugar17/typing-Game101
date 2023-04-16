@@ -24,51 +24,35 @@ const db = getFirestore()
 // collection ref
 const colRef = collection(db, 'player')
 
-//collection data
-getDocs(colRef)
-  .then((snapshot) => {
-    var data = []
-    snapshot.docs.forEach((doc) =>{
-      data.push({ ...doc.data(), id: doc.id })
-    })
-    console.log(data);
-  })
-  .catch(err => {
-    console.log(err.message);
-  })
+
 
 //user input
 
-
 document.querySelector('#enter').addEventListener("click", (e)=>{
     var playerName = document.querySelector('#user').value;
-    // var playerScore = document.querySelector('#point').value;
     var x = Math.floor(Math.random() * 10);
     console.log(x)
     console.log(playerName);
-    // e.preventDefualt();
 
     setDoc(doc(db, "player", playerName), {
       name: playerName,
       score: x,
 
-
-
     });
     document.querySelector('#user').value="";
-    // document.querySelector('#point').value="";
 })
 //get doc
 function searchDocument() {
-  const id = document.querySelector('#scoreB').value;
-  const docRef = doc(db, 'player', id);
+  var id = document.querySelector('#scoreB').value;
+  var docRef = doc(db, 'player', id);
+  var view = document.getElementById('result');
 
   getDoc(docRef)
     .then((doc) => {
       if (doc.exists()) {
-        const data = doc.data();
+        var data = doc.data();
         // write the data to the page
-        document.getElementById('result').innerHTML = JSON.stringify(data);
+        view.innerHTML = "this is your data " + JSON.stringify(data);
       } else {
         console.log('No such document!');
       }
