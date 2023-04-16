@@ -2,7 +2,7 @@
 import { initializeApp } from 'firebase/app'
 import {
   getFirestore, collection, getDocs,
-  addDoc, deleteDoc, doc, setDoc, updateDoc
+  addDoc, deleteDoc, doc, setDoc, updateDoc, getDoc, onSnapshot
 } from 'firebase/firestore'
 
 
@@ -22,27 +22,60 @@ initializeApp(firebaseConfig)
 const db = getFirestore()
 
 // collection ref
-// const colRef = collection(db, 'player')
+const colRef = collection(db, 'player')
+
+//collection data
+getDocs(colRef)
+  .then((snapshot) => {
+    var data = []
+    snapshot.docs.forEach((doc) =>{
+      data.push({ ...doc.data(), id: doc.id })
+    })
+    console.log(data);
+  })
+  .catch(err => {
+    console.log(err.message);
+  })
 
 //user input
 
 
 document.querySelector('#enter').addEventListener("click", (e)=>{
     var playerName = document.querySelector('#user').value;
-    var playerScore = document.querySelector('#point').value;
+    // var playerScore = document.querySelector('#point').value;
+    var x = Math.floor(Math.random() * 10);
+    console.log(x)
     console.log(playerName);
     // e.preventDefualt();
 
-    addDoc(collection(db, 'player'), {
+    setDoc(doc(db, "player", playerName), {
       name: playerName,
-      score: playerScore,
+      score: x,
 
 
 
     });
     document.querySelector('#user').value="";
-    document.querySelector('#point').value="";
+    // document.querySelector('#point').value="";
 })
+//get doc
+function searchDocument() {
+  const id = document.querySelector('#scoreB').value;
+  const docRef = doc(db, 'player', id);
 
+  getDoc(docRef)
+    .then((doc) => {
+      if (doc.exists()) {
+        const data = doc.data();
+        // write the data to the page
+        document.getElementById('result').innerHTML = JSON.stringify(data);
+      } else {
+        console.log('No such document!');
+      }
+    })
+    .catch((error) => {
+      console.log('Error getting document:', error);
+    });
+}
 
-
+document.getElementById('search').addEventListener('click', searchDocument);
