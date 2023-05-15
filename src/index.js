@@ -52,7 +52,12 @@ function searchDocument() {
       if (doc.exists()) {
         var data = doc.data();
         // write the data to the page
-        view.innerHTML = "this is your data " + JSON.stringify(data);
+        view.innerHTML = "this is your data " + "name: "+  data.name + " " + "score: " +  data.score;
+
+        // mueller code
+        console.log("the button was clicked")
+        console.log("name: " + data.name)
+        console.log("score: " + data.score)
       } else {
         console.log('No such document!');
       }
