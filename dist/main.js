@@ -1,4 +1,4 @@
-
+type="module">
 import kaboom from "kaboom"
 // initialize context
 kaboom({

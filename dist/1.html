@@ -1,0 +1,196 @@
+<script type="module">
+
+// import kaboom lib
+import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
+
+// initialize kaboom context
+kaboom({
+    background: [ 0 ]
+});
+
+// load assets
+// loadSprite("bean", "sprites/slime.png")
+// add a character to screen
+add([
+  // list of components
+//   sprite("slime"),
+rect(48, 64),
+  pos(80, 40),
+  area(),
+  body(),
+  "player",
+])
+
+// floor
+add([
+  rect(width(), 48),
+  pos(0, height() - 48),
+  outline(5),
+  area(),
+  solid(),
+  color(124, 252, 0),
+])
+// randmWords
+var randomWords = ["dead", "alive", "life", "ghost", "zombie", "mutant", "sep", "software", "engineer", "construction", "freedom", "project", "infection", "assimilate", "survival", "typing", "fortress", "build", "kill", "spread", "solo", "project", "google", "javascript", "html", "css", "technology", "doomsday", "end", "escape"];
+//"supercalifragilisticexpialidocious"
+
+// num Gen
+var ranNumGen = Math.floor(Math.random() * randomWords.length);
+
+// speed
+var SPEED = 200;
+
+// enemy
+var enemy = add([
+  // sprite("enemy"),
+  rect(48, 64),
+  color(0,153,255),
+  opacity(0.5),
+  // textColor(255),
+  text(""),
+  area(),
+  body(),
+  outline(4),
+  pos(width(), height() - 48),
+  origin("botleft"),
+  move(LEFT, SPEED),
+  "enemy",
+]);
+
+enemy.text = randomWords[ranNumGen]
+onCharInput((char) => {
+  if (char === enemy.text.charAt(0)) {
+    enemy.text = enemy.text.substring(1, enemy.text.length)
+    if (enemy.text.charAt() == "") {
+      destroy(enemy)
+      enemy = add([
+        rect(48, 64),
+        color(0,153,255),
+        opacity(0.5),
+        text(""),
+        area(),
+        body(),
+        outline(4),
+        pos(width(), height() - 48),
+        origin("botleft"),
+        move(LEFT, SPEED),
+        "enemy",
+      ]);
+      enemy.text = randomWords[ranNumGen]
+      ranNumGen = Math.floor(Math.random() * randomWords.length);
+    }
+  }
+  if (score >= 1000) {
+    SPEED += 1;
+  }
+})
+
+// Scoring
+let score = 0;
+
+const scoreLabel = add([
+  text(score),
+  pos(24, 24),
+]);
+
+// Increases score every frame
+onUpdate(() => {
+  score++;
+  scoreLabel.text = score;
+});
+
+//lose
+onCollide("player", "enemy", () => {
+  every("player", destroy)
+  go("lose", score);
+})
+
+scene("lose", (score) => {
+  // display score
+  add([
+    text("You Scored!"),
+    pos(width() / 2, height() / 7 + 80),
+    scale(1),
+    origin("center"),
+  ]);
+  add([
+    text(score),
+    pos(width() / 2, height() / 2 + 80),
+    scale(2),
+    origin("center"),
+  ]);
+});
+</script>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+            /* CSS */
+
+        </style>
+
+        <title>Title</title>
+    </head>
+    <body>
+        <!-- HTML -->
+        <div class ="container col board">
+            <h1 class ="title">Firebase Score Leaderboard MVP</h1>
+
+
+            <!-- <h6> the score will be random for now since it isn't connected to the game that my partner made yet</h4> -->
+            <h2>Enter name in the first text input</h2>
+            <!-- <form id="user"> -->
+              <div class="secB">
+              <label for="user">name</label>
+              <input id="user" type="text" required>
+              <!-- <label for="point">score</label>
+              <input id="point" type="text"> -->
+
+              <button id="enter">enter</button>
+            <!-- </form> -->
+              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                click to search for your score
+              </button>
+            </p>
+             <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                make sure you enter the username you wrote in the previous section
+                <label for="docId">Enter Username:</label>
+                  <input type="text" id="scoreB">
+                  <button id="search">Get Document</button>
+              <div id="result"></div>
+          </div>
+
+              </div>
+            </div>
+          </div>
+
+            <div class="list">
+
+          </div>
+
+
+          
+
+            <script src="bundle.js"></script>
+            <!-- <script src="main.js" type="module" ></script> -->
+            <!-- <script src="multiplayer.js"></script> -->
+          </body>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // JS
+
+
+        </script>
+    </body>
+</html>
+
+<script src="bundle.js"></script>

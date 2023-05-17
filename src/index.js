@@ -30,7 +30,7 @@ const colRef = collection(db, 'player')
 
 document.querySelector('#enter').addEventListener("click", (e)=>{
     var playerName = document.querySelector('#user').value;
-    var x = Math.floor(Math.random() * 10) ;
+    var x = score;
     console.log(x)
     console.log(playerName);
 

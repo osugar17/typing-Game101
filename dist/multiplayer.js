@@ -1,3 +1,4 @@
+type="module">
 const ws = require("ws");
 
 module.exports = (server) => {
