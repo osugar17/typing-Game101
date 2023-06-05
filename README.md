@@ -14,7 +14,7 @@ For my project, I am making a typing game with my partner Junjie Li. I worked on
 [Presentation](https://docs.google.com/presentation/d/1DlBsuCo2btYgjM0rnWKOzWDL7PRuZVDRET_R7uEoy9w/edit#slide=id.p)
 
 ## Implications
-Our game can help people socially, economically. Friends who play our game can compete over the score that they get in the game and have fun at the same time which strengthens their relationship. Players will also improve their typing speed on a computer while playing the game. This would make it easier for them to be hired in jobs that needs their employees to type very fast and more efficiently. Faster typing speed can also help people write their essays more efficiently which saves a lot of time.
+Our game can help people socially, economically. Friends who play our game can compete over the score that they get in the game and have fun at the same time which strengthens their relationship. Players will also improve their typing speed on a computer while playing the game. This would make it easier for them to be hired in jobs that needs their employees to type very fast and more efficiently. Faster typing speed can also help people write their essays more efficiently which saves a lot of time. However, the game might also have a negative impact on the society. For example, kid might be too addicted to our game and affects their daily lives. 
 
 ---
 
